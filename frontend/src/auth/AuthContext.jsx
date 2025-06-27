@@ -4,19 +4,32 @@ const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem("token-trackear") || "");
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
 
   useEffect(() => {
     if (token) {
-      // Podés decodificar el token o llamar al backend para obtener el usuario
+      try {
       const payload = JSON.parse(atob(token.split(".")[1]));
-      setUser({ id: payload.id, email: payload.email, name: payload.name });
+      setUser({
+        id: payload.id,
+        email: payload.email,
+        name: payload.name,
+        google: payload.google, // esto lo agrega el backend si viene de Google
+      });
+    } catch (error) {
+      console.error("Token inválido:", error);
+      logout(); // limpia estado si el token es inválido
+    }
     }
   }, [token]);
 
-  const login = (jwt) => {
+  const login = (jwt, userData = null) => {
     localStorage.setItem("token-trackear", jwt);
     setToken(jwt);
+
+    if(userData) {
+      setUser(userData);
+    }
   };
 
   const logout = () => {
@@ -25,8 +38,10 @@ export function AuthProvider({ children }) {
     setUser(null);
   };
 
+  const isAuthenticated = !!user;
+
   return (
-    <AuthContext.Provider value={{ token, user, login, logout }}>
+    <AuthContext.Provider value={{ token, user, login, logout, isAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );

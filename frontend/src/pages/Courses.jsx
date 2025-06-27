@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
 
 const Courses = () => {
   const navigate = useNavigate();
+  const { user } = useAuth()
   const [cursos, setCursos] = useState([]);
 
   const [nuevoCurso, setNuevoCurso] = useState("");
@@ -36,6 +38,7 @@ const Courses = () => {
   };
 
   useEffect(() => {
+    console.log('user', user)
     const fetchCursos = async () => {
       const token = localStorage.getItem("token-trackear");
       if (!token) return;

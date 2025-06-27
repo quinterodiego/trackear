@@ -10,7 +10,6 @@ import { Footer } from "./components/Footer";
 import Courses from "./pages/Courses";
 
 function App() {
-
   return (
     <AuthProvider>
       <BrowserRouter>

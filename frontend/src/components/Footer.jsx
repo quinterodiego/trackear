@@ -23,7 +23,7 @@ export const Footer = () => {
                 <a href="#" className="hover:underline">Contact</a>
               </li>
             </ul> */}
-          <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="/" className="hover:underline">TRACKEAR</a>. Todos los derechos reservados.</span>
+          <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="/" className="hover:text-primary">TRACKEAR</a>. Todos los derechos reservados.</span>
           </div>
         </div>
       </footer>
