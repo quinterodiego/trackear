@@ -103,7 +103,53 @@ npm run dev
 
 La aplicación estará disponible en `http://localhost:3000`
 
-## 📱 Uso de la Aplicación
+## � Deployment en Vercel
+
+### Preparación
+
+1. **Asegúrate de que tu código esté en GitHub**:
+   ```bash
+   git add .
+   git commit -m "Preparar para deployment en Vercel"
+   git push origin main
+   ```
+
+2. **Configura las variables de entorno para producción**:
+   - `NEXTAUTH_URL`: Tu dominio de Vercel (ej: `https://tu-app.vercel.app`)
+   - Todas las demás variables del archivo `.env.example`
+
+### Deployment
+
+1. **Ve a [Vercel](https://vercel.com/)**
+2. **Conecta tu cuenta de GitHub**
+3. **Importa tu repositorio `trackear`**
+4. **Configura las variables de entorno**:
+   - Ve a Settings → Environment Variables
+   - Añade todas las variables del archivo `.env.example`
+   - Para `NEXTAUTH_URL`, usa tu dominio de Vercel
+5. **Deploy automático**: Vercel detectará que es un proyecto Next.js y lo deployará automáticamente
+
+### Variables de entorno requeridas en Vercel:
+
+```env
+NEXTAUTH_SECRET=tu_nextauth_secret_aqui
+NEXTAUTH_URL=https://tu-app.vercel.app
+GOOGLE_CLIENT_ID=tu_google_client_id_aqui
+GOOGLE_CLIENT_SECRET=tu_google_client_secret_aqui
+GOOGLE_SERVICE_ACCOUNT_JSON={"type":"service_account",...}
+GOOGLE_SHEET_ID=tu_google_sheet_id_aqui
+JWT_SECRET=tu_jwt_secret_aqui
+```
+
+### Configuración adicional para Google OAuth
+
+1. **Actualiza las URLs autorizadas en Google Cloud Console**:
+   - URLs de origen: `https://tu-app.vercel.app`
+   - URLs de redirección: `https://tu-app.vercel.app/api/auth/callback/google`
+
+2. **Verifica que tu Google Sheet esté compartida** con la cuenta de servicio
+
+## �📱 Uso de la Aplicación
 
 1. **Registro/Login**: Crea una cuenta o inicia sesión con Google
 2. **Dashboard**: Ve tus cursos y su progreso
@@ -111,21 +157,12 @@ La aplicación estará disponible en `http://localhost:3000`
 4. **Gestionar clases**: Entra a un curso para agregar y marcar clases
 5. **Seguimiento**: Observa tu progreso con los gráficos circulares
 
+## 🎨 Características de Diseño
+
+- **Paleta de colores moderna**: Yellow-green (#BAFF39), grises optimizados para contraste
+- **Completamente responsive**: Optimizado para móviles, tablets y desktop
+- **Accesible**: Cumple con estándares WCAG 2.1 AA/AAA
+- **Animaciones sutiles**: Transiciones y efectos hover
+- **Iconografía consistente**: Heroicons para una UI profesional
+
 ¡Feliz aprendizaje con Trackear! 🚀
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
