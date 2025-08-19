@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #6E6E6E;
+  
+  /* Nueva Paleta Trackear - Amarillo-Verde y Gris con mejor contraste */
+  --trackear-primary: #BAFF39;           /* Amarillo-Verde para acentos */
+  --trackear-primary-50: #f8ffe6;        /* Muy suave */
+  --trackear-primary-100: #f0ffcc;       /* Suave */
+  --trackear-primary-200: #e6ffb3;       /* Claro */
+  --trackear-primary-300: #d9ff80;       /* Medio claro */
+  --trackear-primary-400: #ccff66;       /* Medio */
+  --trackear-primary-500: #BAFF39;       /* Principal */
+  --trackear-primary-600: #a6e632;       /* Medio oscuro */
+  --trackear-primary-700: #8fcc2b;       /* Oscuro */
+  --trackear-primary-800: #7ab324;       /* Más oscuro */
+  --trackear-primary-900: #66991d;       /* Muy oscuro */
+  
+  /* Gradiente más sutil */
+  --trackear-gradient: linear-gradient(135deg, #BAFF39 0%, #a6e632 100%);
+  --trackear-gradient-subtle: linear-gradient(135deg, #f0ffcc 0%, #e6ffb3 100%);
+  
+  /* Gris tenue y variaciones - Para texto principal */
+  --trackear-gray: #6E6E6E;             /* Gris principal para texto */
+  --trackear-gray-50: #fafafa;          /* Casi blanco */
+  --trackear-gray-100: #f5f5f5;         /* Muy claro */
+  --trackear-gray-200: #e5e5e5;         /* Claro */
+  --trackear-gray-300: #d4d4d4;         /* Medio claro */
+  --trackear-gray-400: #a3a3a3;         /* Medio */
+  --trackear-gray-500: #737373;         /* Medio oscuro */
+  --trackear-gray-600: #6E6E6E;         /* Principal */
+  --trackear-gray-700: #525252;         /* Oscuro para títulos */
+  --trackear-gray-800: #404040;         /* Más oscuro para títulos importantes */
+  --trackear-gray-900: #262626;         /* Muy oscuro para máximo contraste */
+  
+  /* Blanco */
+  --trackear-white: #FFFFFF;
+  
+  /* Colores de estado - usando tonos más oscuros para mejor contraste */
+  --trackear-success-100: #f0f9f0;
+  --trackear-success-500: #22c55e;      /* Verde más oscuro para mejor contraste */
+  --trackear-success-600: #16a34a;
+  --trackear-success-700: #15803d;
+  
+  --trackear-warning-100: #fff8e1;
+  --trackear-warning-500: #f57c00;      /* Naranja más oscuro */
+  --trackear-warning-600: #ef6c00;
+  
+  --trackear-error-100: #ffebee;
+  --trackear-error-500: #d32f2f;        /* Rojo más oscuro */
+  --trackear-error-600: #c62828;
+  
+  --trackear-info-100: #e3f2fd;
+  --trackear-info-500: #1976d2;         /* Azul más oscuro */
+  --trackear-info-600: #1565c0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Clases utilitarias personalizadas para Nueva Paleta Trackear con mejor contraste */
+.bg-trackear-primary {
+  background-color: var(--trackear-primary);
+}
+
+.bg-trackear-primary-hover:hover {
+  background-color: var(--trackear-primary-600);
+}
+
+.text-trackear-primary {
+  color: var(--trackear-primary-700); /* Más oscuro para mejor contraste */
+}
+
+.text-trackear-primary-bright {
+  color: var(--trackear-primary); /* Solo para elementos destacados */
+}
+
+.text-trackear-gray {
+  color: var(--trackear-gray);
+}
+
+.text-trackear-gray-dark {
+  color: var(--trackear-gray-700); /* Para títulos con más contraste */
+}
+
+.text-trackear-gray-darker {
+  color: var(--trackear-gray-800); /* Para títulos principales */
+}
+
+.text-trackear-gray-darkest {
+  color: var(--trackear-gray-900); /* Para máximo contraste */
+}
+
+.text-trackear-white {
+  color: var(--trackear-white);
+}
+
+.border-trackear-primary {
+  border-color: var(--trackear-primary);
+}
+
+.bg-trackear-gradient {
+  background: var(--trackear-gradient);
+}
+
+.bg-trackear-gradient-subtle {
+  background: var(--trackear-gradient-subtle);
+}
+
+.bg-trackear-white {
+  background-color: var(--trackear-white);
+}
+
+.bg-trackear-gray {
+  background-color: var(--trackear-gray);
+}
+
+.bg-trackear-gray-50 {
+  background-color: var(--trackear-gray-50);
+}
+
+.bg-trackear-gray-100 {
+  background-color: var(--trackear-gray-100);
+}
+
+.bg-trackear-gray-800 {
+  background-color: var(--trackear-gray-800);
+}
+
+/* Estados de colores con mejor contraste */
+.bg-trackear-success {
+  background-color: var(--trackear-success-600);
+}
+
+.bg-trackear-success-hover:hover {
+  background-color: var(--trackear-success-700);
+}
+
+.text-trackear-success {
+  color: var(--trackear-success-600);
+}
+
+.bg-trackear-error {
+  background-color: var(--trackear-error-500);
+}
+
+.text-trackear-error {
+  color: var(--trackear-error-500);
+}
+
+.bg-trackear-warning {
+  background-color: var(--trackear-warning-500);
+}
+
+.text-trackear-warning {
+  color: var(--trackear-warning-500);
+}
+
+/* Combinaciones de alto contraste */
+.trackear-high-contrast {
+  background-color: var(--trackear-gray-900);
+  color: var(--trackear-white);
+}
+
+.trackear-accent-box {
+  background-color: var(--trackear-primary-100);
+  color: var(--trackear-gray-800);
+  border: 1px solid var(--trackear-primary-300);
+}
+
+/* Estilos personalizados para Trackear */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Logo y branding con nueva paleta */
+.trackear-logo-gradient {
+  background: var(--trackear-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.trackear-text-shadow {
+  text-shadow: 0 2px 4px rgba(110, 110, 110, 0.1);
+}
+
+/* Animaciones para elementos de marca */
+.trackear-pulse {
+  animation: trackear-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes trackear-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .8;
+  }
+}
+
+/* Efectos de hover suaves */
+.trackear-hover-lift:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Sombras personalizadas */
+.trackear-shadow {
+  box-shadow: 0 4px 6px rgba(110, 110, 110, 0.1);
+}
+
+.trackear-shadow-lg {
+  box-shadow: 0 10px 15px rgba(110, 110, 110, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Estilos personalizados para Trackear */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

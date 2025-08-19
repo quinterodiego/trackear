@@ -1,0 +1,45 @@
+{
+  "name": "trackear-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "dev:debug": "NODE_ENV=development next dev --turbopack",
+    "validate-env": "node -e \"require('./src/lib/debug-utils.ts').validateGoogleSheetsConfig()\""
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.4",
+    "@heroicons/react": "^2.2.0",
+    "bcryptjs": "^3.0.2",
+    "date-fns": "^4.1.0",
+    "googleapis": "^150.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "next": "15.4.7",
+    "next-auth": "^4.24.10",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "recharts": "^3.0.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@tailwindcss/postcss": "^4.1.10",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.11.9",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@types/uuid": "^10.0.0",
+    "eslint": "^9.25.0",
+    "eslint-config-next": "15.4.7",
+    "tailwindcss": "^4.1.10",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
