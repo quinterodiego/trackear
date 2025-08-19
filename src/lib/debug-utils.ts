@@ -27,13 +27,13 @@ export function validateGoogleSheetsConfig() {
   return true;
 }
 
-export function logSheetOperation(operation: string, sheetName: string, data?: any) {
+export function logSheetOperation(operation: string, sheetName: string, data?: Record<string, unknown>) {
   if (process.env.NODE_ENV === 'development') {
     console.log(`📊 Google Sheets: ${operation} en hoja "${sheetName}"`, data ? { data } : '');
   }
 }
 
-export function handleSheetError(error: any, operation: string) {
+export function handleSheetError(error: Record<string, unknown>, operation: string) {
   console.error(`❌ Error en Google Sheets (${operation}):`, error.message);
   
   if (error.code === 403) {
@@ -44,7 +44,7 @@ export function handleSheetError(error: any, operation: string) {
     console.error('💡 Posible solución: Verifica GOOGLE_SHEET_ID y nombres de hojas');
   }
   
-  if (error.message.includes('Unable to parse range')) {
+  if (typeof error.message === 'string' && error.message.includes('Unable to parse range')) {
     console.error('💡 Posible solución: Verifica nombres exactos de hojas: "Users", "Courses", "Classes"');
   }
 }

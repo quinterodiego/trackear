@@ -11,10 +11,6 @@ const navigation = [
   { name: 'Cursos', href: '/courses', current: false },
 ];
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
-
 export function Navbar() {
   const { data: session } = useSession();
 
